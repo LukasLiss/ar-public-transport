@@ -2,9 +2,16 @@ import './tripstyle.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {Location, BuslineLocations, exampleBusLine} from './line';
+
+//global threejs objects
 
 let scene, camera, renderer, controls;
 let cube;
+
+//logic global variables
+
+let currentLocation, globalNewLocation;
 
 function getCanvasWidth() {
     return document.getElementById("three-d-area").clientWidth;
@@ -12,6 +19,19 @@ function getCanvasWidth() {
 
 function getCanvasHeight() {
     return document.getElementById("three-d-area").clientHeight;
+}
+
+function wiringHTML(){
+    //slider
+    document.getElementById("myRange").oninput = (function(){
+        onPostionChanged();
+    })
+
+    //new Location button
+    document.getElementById("newLocation").onclick = (function(){
+        updateViewToNewLocation();
+        hideNewLocationBtn();
+    })
 }
 
 function setup(){
@@ -52,7 +72,7 @@ function setup(){
     const loader = new GLTFLoader();
 
     loader.load( './data/kaiser/kaiser.gltf', function ( gltf ) {
-        gltf.scene.position.set(4, -1, 8);
+        gltf.scene.position.set(4, -3, 8);
         gltf.scene.scale.set(6, 6, 6);
 	    scene.add( gltf.scene );
     }, undefined, function ( error ) {
@@ -73,4 +93,42 @@ function animate() {
 	renderer.render( scene, camera );
 }
 
+function onPostionChanged(directUpdate = false){
+    //normally access the device longitude and latitude here
+
+    //fake location here instead:
+    let fakePos = parseInt(document.getElementById("myRange").value);
+
+    let newLocation = exampleBusLine.getClosestLocation(fakePos, fakePos);
+    if(newLocation != currentLocation){
+        globalNewLocation = newLocation;
+        if(directUpdate){
+            updateViewToNewLocation();
+        }else{
+            showNewLocationBtn();
+        }
+    }
+}
+
+function updateViewToNewLocation(){
+    currentLocation = globalNewLocation;
+    //update Headline
+    document.getElementById("cont-Headline").innerHTML = currentLocation.headline;
+
+    //update Text
+    document.getElementById("cont-longText").innerHTML = currentLocation.text;
+
+    //update 3D scene
+}
+
+function showNewLocationBtn(){
+    document.getElementById("newLocation").style.bottom = "15px";
+}
+
+function hideNewLocationBtn(){
+    document.getElementById("newLocation").style.bottom = "-200px";
+}
+
+wiringHTML();
+onPostionChanged(true);
 setup();
