@@ -5,10 +5,27 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
     <div id="app">
       <h1>AR in public Transport</h1>
+      <p>Select your bus line</p>
+      <div id="selection-area">
+        <input type="text" id="lineinput">
+        <div id="line-list">
+          <input type="button" class="line-btn" value="Line 550" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 551" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 552" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 553" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 620" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 621" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 650" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 651" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 652" onclick="location.href='/trip.html'">
+          <input type="button" class="line-btn" value="Line 750" onclick="location.href='/trip.html'">
+        </div>
+      </div>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
