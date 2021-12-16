@@ -8,25 +8,63 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
-    <input type="range" min="1" max="5" value="1" class="slider" id="myRange">
+    <input type="range" min="1" max="6" value="1" class="slider" id="myRange">
     <input type="button" id="newLocation" value="See new Location">
     <div id="app">
-      <h1>Trip Info</h1>
-      <h2>Close interesting location:</h2>
-      <div id="three-d-area">
-
+      <h1>Your Trip</h1>
+      <input type="button" id="toggleView" class="main-button" value="List of Landmarks">
+      <div id="landmark-list-container">
+        <p>The Bus Line has those landmarks.</p>
+        <div id="landmark-list">
+          <div class="landmark past">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Landmark Headline 1</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+          <div class="landmark current">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Long Landmark Headline 2</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+          <div class="landmark future">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Landmark Headline 3</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+          <div class="landmark future">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Long Landmark Headline 4</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+          <div class="landmark future">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Long Landmark Headline 5</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+          <div class="landmark future">
+            <img src="./data/images/example.jpeg" class="round-img">
+            <h4>Long Landmark Headline 6</h4>
+            <p class="minShow">~ 1m</p>
+          </div>
+        </div>
       </div>
-      <div id="text-section">
-        <h2 id="cont-Headline">Church of Helsinki</h2>
-        <p id="cont-longText">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel felis ornare, tempor massa nec, porta velit. Duis ac metus commodo, hendrerit nisl faucibus, pretium diam. Curabitur sit amet maximus nisi. Praesent faucibus mauris eu sollicitudin iaculis. Integer id diam erat. Pellentesque dignissim lorem nisl, et sodales sem scelerisque et. Ut facilisis malesuada nisl, vel dignissim sem gravida ac. Curabitur sit amet magna bibendum, convallis quam a, tincidunt enim. Proin vitae luctus ipsum, in egestas sem. Suspendisse hendrerit nulla neque, lobortis egestas erat dignissim nec. Aliquam viverra volutpat molestie. Nullam in lacus viverra, mollis eros quis, finibus lacus. Vestibulum quis diam commodo, hendrerit turpis id, blandit libero. Praesent sit amet cursus risus. Mauris mauris nulla, consequat nec odio ut, tempus volutpat nunc.
-          <br/>
-          <br/>
-          Mauris sagittis mi vitae magna malesuada, id sodales orci tincidunt. Aliquam nisl mauris, condimentum non congue sed, luctus in tellus. Integer venenatis aliquet orci, sed tristique ipsum molestie vel. In sodales ut erat non euismod. Maecenas ut felis nunc. Phasellus vitae velit massa. Curabitur volutpat libero ligula, non rutrum arcu dictum non. Aliquam tempus ante sit amet placerat interdum. Curabitur semper porta nunc, a porta massa cursus vitae. Nulla sollicitudin ornare nisi, ut aliquam tellus volutpat sed. Phasellus malesuada magna dolor, id ornare nibh congue nec. Vestibulum a orci tincidunt, blandit felis ac, facilisis justo. Cras mollis lectus justo, a molestie est iaculis sed. Nullam at sodales arcu.
-          <br/>
-          <br/>
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean luctus orci a mattis dictum. Etiam fermentum condimentum eros, in malesuada elit feugiat eu. Quisque tristique odio eu sodales lacinia. Nulla vehicula risus nibh, sit amet mollis nibh convallis at. Nulla a quam dapibus, elementum urna non, facilisis enim. Ut tempor dictum sollicitudin. Duis suscipit nisi vestibulum euismod efficitur. Etiam vitae nunc non metus bibendum mattis.
-        </p>
+      <div id="close-location-container">
+        <h2>Closest Landmark:</h2>
+        <div id="three-d-area">
+
+        </div>
+        <div id="text-section">
+          <h2 id="cont-Headline">Church of Helsinki</h2>
+          <p id="cont-longText">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel felis ornare, tempor massa nec, porta velit. Duis ac metus commodo, hendrerit nisl faucibus, pretium diam. Curabitur sit amet maximus nisi. Praesent faucibus mauris eu sollicitudin iaculis. Integer id diam erat. Pellentesque dignissim lorem nisl, et sodales sem scelerisque et. Ut facilisis malesuada nisl, vel dignissim sem gravida ac. Curabitur sit amet magna bibendum, convallis quam a, tincidunt enim. Proin vitae luctus ipsum, in egestas sem. Suspendisse hendrerit nulla neque, lobortis egestas erat dignissim nec. Aliquam viverra volutpat molestie. Nullam in lacus viverra, mollis eros quis, finibus lacus. Vestibulum quis diam commodo, hendrerit turpis id, blandit libero. Praesent sit amet cursus risus. Mauris mauris nulla, consequat nec odio ut, tempus volutpat nunc.
+            <br/>
+            <br/>
+            Mauris sagittis mi vitae magna malesuada, id sodales orci tincidunt. Aliquam nisl mauris, condimentum non congue sed, luctus in tellus. Integer venenatis aliquet orci, sed tristique ipsum molestie vel. In sodales ut erat non euismod. Maecenas ut felis nunc. Phasellus vitae velit massa. Curabitur volutpat libero ligula, non rutrum arcu dictum non. Aliquam tempus ante sit amet placerat interdum. Curabitur semper porta nunc, a porta massa cursus vitae. Nulla sollicitudin ornare nisi, ut aliquam tellus volutpat sed. Phasellus malesuada magna dolor, id ornare nibh congue nec. Vestibulum a orci tincidunt, blandit felis ac, facilisis justo. Cras mollis lectus justo, a molestie est iaculis sed. Nullam at sodales arcu.
+            <br/>
+            <br/>
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aenean luctus orci a mattis dictum. Etiam fermentum condimentum eros, in malesuada elit feugiat eu. Quisque tristique odio eu sodales lacinia. Nulla vehicula risus nibh, sit amet mollis nibh convallis at. Nulla a quam dapibus, elementum urna non, facilisis enim. Ut tempor dictum sollicitudin. Duis suscipit nisi vestibulum euismod efficitur. Etiam vitae nunc non metus bibendum mattis.
+          </p>
+        </div>
       </div>
     </div>
     <script type="module" src="/trip.js"></script>

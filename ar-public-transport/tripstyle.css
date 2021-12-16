@@ -18,6 +18,7 @@
 #three-d-area {
     width: 300px;
     height: 300px;
+
 }
 
 #myRange{
@@ -28,6 +29,7 @@
 }
 
 #newLocation{
+    z-index: 99;
     position: fixed;
     bottom: -200px;
     left: 50%;
@@ -40,4 +42,86 @@
     text-decoration: none;
     font-size: 16px;
     padding: 15px 32px;
+}
+
+.main-button {
+	background-color:#5985c9;
+	border-radius:8px;
+    border: 0px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+}
+.main-button:hover {
+	background-color:#5985c9;
+}
+.main-button:active {
+	position:relative;
+	top:1px;
+}
+
+.line-btn {
+    background-color: #5985c9; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.landmark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border:1px solid black;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    text-align: left;
+    position: relative;
+}
+
+.round-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.past {
+    background-color: #cccccc;
+}
+
+.current {
+    background-color: #5985c9;
+}
+
+.future {
+    background-color: none;
+}
+
+.minShow {
+    position: absolute;
+    margin: 0px;
+    right: 5px;
+    bottom: 2px;
+    font-size: 14px;
+}
+
+#close-location-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

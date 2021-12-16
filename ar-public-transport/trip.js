@@ -9,6 +9,8 @@ import {Location, BuslineLocations, exampleBusLine} from './line';
 let scene, camera, renderer, controls;
 let cube;
 
+let seeLandmarkList = false;
+
 //logic global variables
 
 let currentLocation, globalNewLocation;
@@ -31,6 +33,20 @@ function wiringHTML(){
     document.getElementById("newLocation").onclick = (function(){
         updateViewToNewLocation();
         hideNewLocationBtn();
+    })
+
+    //toggle Button
+    document.getElementById("toggleView").onclick = (function(){
+        seeLandmarkList = !seeLandmarkList;
+        if(seeLandmarkList){
+            $("#close-location-container").hide();
+            $("#landmark-list-container").show();
+            $("#toggleView").prop('value', 'Show closest Landmark');
+        }else{
+            $("#landmark-list-container").hide();
+            $("#close-location-container").show();
+            $("#toggleView").prop('value', 'List of Landmarks');
+        }
     })
 }
 
@@ -100,13 +116,58 @@ function onPostionChanged(directUpdate = false){
     let fakePos = parseInt(document.getElementById("myRange").value);
 
     let newLocation = exampleBusLine.getClosestLocation(fakePos, fakePos);
+
+    updateLandmarkList(newLocation);
+
     if(newLocation != currentLocation){
         globalNewLocation = newLocation;
+
         if(directUpdate){
             updateViewToNewLocation();
         }else{
             showNewLocationBtn();
         }
+    }
+}
+
+function updateLandmarkList(location){
+
+    let locationData = exampleBusLine.getLocationsWithEstimations(location);
+    //remove old
+    document.getElementById("landmark-list").innerHTML = "";
+    //add correct layout
+    for(let i=0; i < locationData.length; i++){
+        let timeString;
+        if(locationData[i].minute == 0){
+            timeString = "";
+        }else{
+            timeString = "~ " + locationData[i].minute + "m";
+        }
+
+        let classText = "";
+        if(locationData[i].timeId == 0) classText = "landmark past";
+        if(locationData[i].timeId == 1) classText = "landmark current";
+        if(locationData[i].timeId == 2) classText = "landmark future";
+
+        let divLandmark = document.createElement("div");
+        divLandmark.className = classText;
+        let imgElem = document.createElement("img");
+        imgElem.className = "round-img";
+        imgElem.src = './data/images/' + locationData[i].imagePath;
+        divLandmark.appendChild(imgElem);
+        let headElem = document.createElement("h4");
+        headElem.appendChild(document.createTextNode(locationData[i].headline));
+        divLandmark.appendChild(headElem);
+        let minElem = document.createElement("p");
+        minElem.appendChild(document.createTextNode(timeString));
+        minElem.className = "minShow";
+        divLandmark.appendChild(minElem);
+
+        document.getElementById("landmark-list").appendChild(divLandmark);
+
+        // $("#landmark-list").html(
+        //     '<div class="landmark past"><img src="./data/images/' + locationData[i].imagePath + '" class="' + classText + '"><h4>' + locationData[i].headline + '</h4><p class="minShow">' + timeString + '</p></div>'
+        // )
     }
 }
 
@@ -127,8 +188,17 @@ function showNewLocationBtn(){
 
 function hideNewLocationBtn(){
     document.getElementById("newLocation").style.bottom = "-200px";
+
+    //check whether need to switch to landmarkview
+    if(seeLandmarkList == true){
+        seeLandmarkList = false;
+        $("#landmark-list-container").hide();
+        $("#close-location-container").show();
+        $("#toggleView").prop('value', 'List of Landmarks');
+    }
 }
 
+$("#landmark-list-container").hide();
 wiringHTML();
 onPostionChanged(true);
 setup();
