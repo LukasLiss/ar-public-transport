@@ -52,6 +52,11 @@ function wiringHTML(){
             $("#toggleView").prop('value', 'List of Landmarks');
         }
     })
+
+    //AR button
+    document.getElementById("openAR").onclick = (function(){
+        window.open('/arview.html', '_blank');
+    })
 }
 
 function setup(){
@@ -82,8 +87,9 @@ function setup(){
 
     //3d input
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const material = new THREE.MeshBasicMaterial( { color: 0x82868c } );
     cube = new THREE.Mesh( geometry, material );
+    cube.scale.set(2, 2, 2);
     scene.add( cube );
 
     //setupt OrbitControl
@@ -101,6 +107,9 @@ function setup(){
 
 function animate() {
 	requestAnimationFrame( animate );
+
+    cube.rotation.x += 0.01;
+	cube.rotation.y += 0.01;
 
     controls.update();
 	renderer.render( scene, camera );
@@ -180,17 +189,20 @@ function updateViewToNewLocation(){
     if(visibleMesh != null){
         scene.remove(visibleMesh);
     }
-    loadGltfObjIntoScene(currentLocation.objPath);
+    loadGltfObjIntoScene(currentLocation.objPath, currentLocation.posX, currentLocation.posY, currentLocation.posZ, currentLocation.scaleX, currentLocation.scaleY, currentLocation.scaleZ);
     
 }
 
-function loadGltfObjIntoScene(path){
+function loadGltfObjIntoScene(path, x, y, z, xs, ys, zs){
+    scene.add(cube);
     loader.load( path, function ( gltf ) {
-        gltf.scene.position.set(4, -3, 8);
-        gltf.scene.scale.set(6, 6, 6);
+        gltf.scene.position.set(x, y, z);
+        gltf.scene.scale.set(xs, ys, zs);
         visibleMesh = gltf.scene;
+        scene.remove(cube);
 	    scene.add( visibleMesh );
     }, undefined, function ( error ) {
+        scene.remove(cube);
 	    console.error( error );
     } );
 }

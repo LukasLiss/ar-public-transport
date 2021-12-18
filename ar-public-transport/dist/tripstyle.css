@@ -64,6 +64,11 @@
 	top:1px;
 }
 
+.small {
+    font-size:12px;
+	padding:5px 10px;
+}
+
 .line-btn {
     background-color: #5985c9; /* Green */
     border: none;
