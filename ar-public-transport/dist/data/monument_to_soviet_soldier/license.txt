@@ -1,0 +1,11 @@
+Model Information:
+* title:	Monument to Soviet Soldier
+* source:	https://sketchfab.com/3d-models/monument-to-soviet-soldier-a8dfa022f6da44789a471db942bf2f33
+* author:	Alexandr Zhilkin (https://sketchfab.com/allexandr007)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Monument to Soviet Soldier" (https://sketchfab.com/3d-models/monument-to-soviet-soldier-a8dfa022f6da44789a471db942bf2f33) by Alexandr Zhilkin (https://sketchfab.com/allexandr007) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

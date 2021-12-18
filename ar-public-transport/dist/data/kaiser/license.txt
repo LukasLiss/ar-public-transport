@@ -1,0 +1,11 @@
+Model Information:
+* title:	Kaiser Franz Joseph I.
+* source:	https://sketchfab.com/3d-models/kaiser-franz-joseph-i-9050aac1946b434fa90c32aea0ac07ea
+* author:	noe-3d.at (https://sketchfab.com/www.noe-3d.at)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Kaiser Franz Joseph I." (https://sketchfab.com/3d-models/kaiser-franz-joseph-i-9050aac1946b434fa90c32aea0ac07ea) by noe-3d.at (https://sketchfab.com/www.noe-3d.at) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

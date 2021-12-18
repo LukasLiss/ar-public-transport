@@ -2,6 +2,7 @@ import './tripstyle.css';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { ARButton } from 'three/examples/jsm/webxr/ARButton.js';
 import {Location, BuslineLocations, exampleBusLine} from './line';
 
 //global threejs objects
@@ -58,6 +59,7 @@ function setup(){
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize( getCanvasWidth(), getCanvasHeight());
+    renderer.xr.enabled = true;
 
     scene.background = new THREE.Color( 0xffffff );
 
